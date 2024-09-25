@@ -1,2 +1,2 @@
 # seagate-
-Seagate 5U84 logs extractor
+Seagate 5U84 log extractor
