@@ -26,14 +26,66 @@ Manually parsing through this data can be challenging. This script simplifies th
 3. **Output**: 
    - Extracted data is organized and presented in a readable format for further analysis or reporting.
 
-### Example Usage
 
-```bash
-python seagate_log_analyzer.py --logfile path_to_store_yyyy_mm_dd__hh_mm_ss.log --config keywords.yaml
+---
+
+# Seagate 5U84 Storage Log Analyzer
+
+### Problem Statement:
+The Seagate log file (`store_2022_07_18__15_45_31.logs`) is significantly large, containing around 200,000 entries. Manually extracting useful data from these logs using tools like Notepad++, TextPad, `cat`, `grep`, or `awk` can be extremely time-consuming and tedious.
+
+### Use Case:
+This Python script automates the process of extracting key information from the log files, eliminating the need for manual filtering and saving significant time. Instead of relying on standard text manipulation tools, this script uses defined start and end keywords for efficient data extraction.
+
+### Variables:
+- **log_file**: Path to the Seagate log file (e.g., `store_2022_07_18__15_45_31.logs`).
+- **keyword_file**: Path to the YAML configuration file (e.g., `seagate_5u84_keywords.yaml`).
+
+#### Sample Content of `seagate_5u84_keywords.yaml`:
+```yaml
+- start: "# show enclosures"
+  end: "Success: Command"
+- start: "# show advanced-settings"
+  end: "Success: Command"
+- start: "# show redundancy-mode"
+  end: "Success: Command"
 ```
 
-- `logfile`: Path to the decompressed log file.
-- `config`: Path to the YAML configuration file where the extraction rules are defined.
+### Expected Output:
+Upon running the script, the following format will be used to display extracted log entries between the start and end keywords:
+
+```
+>>Begin>>
+
+# show redundancy-mode
+System Redundancy
+-----------------
+Controller Redundancy Mode: Active-Active ULP
+Controller Redundancy Status: Redundant
+Controller A Status: Operational
+Controller A Serial Number: DHSIFGD-2145651DBB
+Controller B Status: Operational
+Controller B Serial Number: DHSIFGD-2145651DE7
+Other MC Status: Operational
+
+Success: Command completed successfully. (2022-07-18 15:46:28)
+
+<<End<<
+```
+
+### How to Run the Program:
+```bash
+python3 seagate_log_extract_v13.py
+```
+
+### Version History:
+- **Author**: Syed Sadat Ali
+- **Version 1.0**: 12-Sept-2022
+- **Version 2.0**: 06-Mar-2023
+- **Version 3.0**: 23-May-2023
+- **Version 6.0**: 01-Nov-2023
+
+---
 
 ### References
 
