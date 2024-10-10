@@ -1,4 +1,4 @@
-# ----------------------------
+```
 # Problem Statement:
 #   The Seagate “store_2022_07_18__15_45_31.logs” log is huge in size
 #   It contains approx 20 lakhs lines
@@ -53,6 +53,7 @@
 # Dated  : 01-Nov-2023
 # Ver    : v.06
 # ---------------------------
+```
 import yaml
 import os
 from datetime import datetime
