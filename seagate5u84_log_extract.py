@@ -39,7 +39,7 @@
 # ------------------
 # How to run program
 # ------------------
-#  ❯ python3 seagate_log_extract_v13.py
+#  ❯ python3 seagate5u84_log_extract.py
 #
 #
 # ---------------------------
